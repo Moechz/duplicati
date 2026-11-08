@@ -1,0 +1,118 @@
+app_id: duplicatidocker
+title: Duplicati
+image: duplicati/duplicati:2.4.1.0-stable
+repo_name: duplicati
+mode: plain
+container_port: 8200
+platform: x86_64
+platforms:
+- x86_64
+- aarch64
+category:
+- Backup_Sync
+user: 1000:1000
+volumes:
+- host: /Volume1/DockerAppData/duplicatidocker/data
+  container: /data
+- host: /Volume1/DockerAppData/duplicatidocker/backups
+  container: /backups
+env:
+  TZ: Asia/Shanghai
+  DUPLICATI__WEBSERVICE_PORT: '8200'
+  DUPLICATI__WEBSERVICE_INTERFACE: any
+healthcheck:
+- CMD-SHELL
+- curl -s -o /dev/null http://127.0.0.1:8200/ || exit 1
+healthcheck_interval: 30s
+healthcheck_timeout: 10s
+healthcheck_retries: 5
+healthcheck_start_period: 60s
+healthcheck_note: 探测首页 `/`（未登录时也返回 200 登录页），能应答即视为可用；首次启动初始化数据库给 60s。
+auth: Duplicati
+upstream_url: https://github.com/duplicati/duplicati
+upstream_license: MIT
+license: MIT
+official: https://github.com/duplicati/duplicati
+help: https://github.com/Moechz/duplicati/issues
+upstream_version: 2.4.1.0
+version: 2.4.1.0-1
+descript: Duplicati is a backup client that stores encrypted, incremental, compressed backups of your
+  files on local disks, network shares or cloud storage (S3, WebDAV, SFTP, OneDrive, Google Drive, Dropbox
+  and many more). It keeps version history, verifies backups and restores single files or whole sets from
+  its web UI. This package runs the official Docker Hub image as a non-root container and keeps its database
+  in the application data folder.
+important: 'Requires DockerEngine (installed if missing); add a registry mirror if Docker Hub is unreachable.
+  Open the app and set an admin password, then add a backup job. Duplicati keeps its database and encryption
+  material in the application data folder - without it existing backups cannot be decrypted, so back it
+  up before uninstalling with data removal. TOS Docker applications cannot see shared folders: local targets
+  live in DockerAppData/duplicatidocker/backups unless you edit docker-compose.yml.'
+release_note: '1. First release: Duplicati 2.4.1.0-stable from the official Docker Hub image, running
+  as a non-root container. The database and backup targets are kept in the application data folder.'
+data_notes: '`data/Duplicati/` holds `Duplicati-server.sqlite` (jobs, schedules, settings), the job databases
+  and the encryption material; `backups/` is the local destination mounted as `/backups`. Set your backup
+  destination to `/backups/...` inside the container to keep local backups under the application data
+  folder.'
+design_notes:
+- '**Non-root without a wrapper.** The official image''s `run-as-user.sh` starts `duplicati-server` with
+  whatever uid the container runs as, so `user: "1000:1000"` is enough; verified on real hardware.'
+- '**Fixed image tag `2.4.1.0-stable`** (never `:latest` / `:stable`), Docker Hub only, no `privileged`,
+  no `network_mode: host`, no `cap_add`, no Docker socket.'
+- '**Two volumes**: `/data` (database and settings) and `/backups` (local backup destination), both below
+  `/Volume1/DockerAppData/duplicatidocker/`.'
+- '**Health check** on the UI (`GET /` on port 8200) with a 60 s start period for the first start.'
+limitations:
+- Duplicati stores the encryption passphrase you set for each backup job. If you lose it, the backups
+  cannot be restored - store it outside the NAS as well.
+- 'TOS Docker applications cannot mount shared folders: a local backup destination must be `/backups/...`
+  (application data folder). Edit `/Volume1/@apps/DockerEngine/application/duplicatidocker/docker-compose.yml`
+  after installation to add another host path.'
+- The UI is served over plain HTTP on the LAN and its sign-in token is printed in the container log. Do
+  not expose the published port to the internet without a TLS reverse proxy.
+runtime_files:
+- path: data/Duplicati/Duplicati-server.sqlite
+  purpose: server database - jobs, schedules, settings, admin password hash
+  created: first start
+  growth: small, grows with the number of jobs
+  lifecycle: never overwritten; required to keep your job configuration
+- path: data/Duplicati/machineid.txt
+  purpose: machine key used to encrypt stored credentials
+  created: first start
+  growth: static
+  lifecycle: never delete; without it saved credentials cannot be decrypted
+- path: data/Duplicati/installation.txt
+  purpose: installation id and first-run marker
+  created: first start
+  growth: static
+  lifecycle: safe to keep; regenerated if deleted
+- path: data/Duplicati/control_dir_v2
+  purpose: control files used to stop and coordinate the server
+  created: first start
+  growth: small
+  lifecycle: managed by Duplicati
+- path: backups
+  purpose: local backup destination (mounted as /backups)
+  created: first start (empty)
+  growth: grows with every backup version
+  lifecycle: yours - keep it, or point jobs at cloud storage instead
+translations:
+  zh-cn:
+    descript: Duplicati 是备份客户端：把文件以加密、增量、压缩的方式备份到本地磁盘、网络共享或云存储（S3、WebDAV、SFTP、OneDrive、Google Drive、Dropbox
+      等），保留版本历史，可校验备份并从网页界面恢复单个文件或整套数据。本应用以非 root 容器运行官方 Docker Hub 镜像，数据库保存在应用数据目录。
+    important: 需要 DockerEngine（缺失时应用中心会提示安装）。镜像安装时从 Docker Hub 拉取，无法直连请先配置镜像加速。打开后请先设置管理员密码，再添加备份任务。Duplicati
+      的数据库与加密材料在应用数据目录——丢失后已有备份集将无法解密，卸载并删除数据前务必备份。TOS 的 Docker 应用访问不到共享文件夹：本地备份目标只能放在 DockerAppData/duplicatidocker/backups，除非你自行编辑
+      docker-compose.yml。
+    release_note: 1. 首次发布：来自 Docker Hub 官方镜像的 Duplicati 2.4.1.0-stable，以非 root 容器运行；数据库与本地备份目标保存在应用数据目录。
+  zh-hk:
+    descript: Duplicati 是備份用戶端：把檔案以加密、增量、壓縮的方式備份到本機磁碟、網路共享或雲端儲存（S3、WebDAV、SFTP、OneDrive、Google Drive、Dropbox
+      等），保留版本歷史，可校驗備份並從網頁介面還原單一檔案或整套資料。本應用以非 root 容器執行官方 Docker Hub 映像，資料庫保存在應用資料目錄。
+    important: 需要 DockerEngine（缺少時應用中心會提示安裝）。映像安裝時從 Docker Hub 下載，無法直連請先設定映像加速。開啟後請先設定管理員密碼，再加入備份工作。Duplicati
+      的資料庫與加密材料在應用資料目錄——遺失後既有備份集將無法解密，解除安裝並刪除資料前務必備份。TOS 的 Docker 應用存取不到共享資料夾：本機備份目標只能放在 DockerAppData/duplicatidocker/backups，除非你自行編輯
+      docker-compose.yml。
+    release_note: 1. 首次發佈：來自 Docker Hub 官方映像的 Duplicati 2.4.1.0-stable，以非 root 容器執行；資料庫與本機備份目標保存在應用資料目錄。
+publisher: Moechz
+compose_project: duplicatidocker
+github_repo: duplicati
+release_tag_prefix: v
+docker_socket: false
+group_add: []
+host_port: 8009

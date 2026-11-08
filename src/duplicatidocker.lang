@@ -1,0 +1,195 @@
+# ===========================================================================
+# Multilingual file for the TOS 7 Docker application "duplicatidocker".
+# File name MUST be: <appid>.lang.  23-language superset (14 required by TOS).
+# The App Center picks the text matching the user's device language;
+# untranslated nodes fall back to English, which the official guide allows.
+# Fields: name (app title), auth (upstream author), descript (up to 512
+# chars), release_note, important (up to 512 chars).
+# Translations come from tosapp.json "translations"; run
+#   tosdocker lang <app>          to re-render this file
+#   tosdocker translate <app>     to see what still needs translating
+# ===========================================================================
+[en-us]
+name         = "Duplicati"
+auth         = "Duplicati"
+version      = "@@VERSION@@"
+descript     = "Duplicati is a backup client that stores encrypted, incremental, compressed backups of your files on local disks, network shares or cloud storage (S3, WebDAV, SFTP, OneDrive, Google Drive, Dropbox and many more). It keeps version history, verifies backups and restores single files or whole sets from its web UI. This package runs the official Docker Hub image as a non-root container and keeps its database in the application data folder."
+release_note = "1. First release: Duplicati 2.4.1.0-stable from the official Docker Hub image, running as a non-root container. The database and backup targets are kept in the application data folder."
+important    = "Requires DockerEngine (installed if missing); add a registry mirror if Docker Hub is unreachable. Open the app and set an admin password, then add a backup job. Duplicati keeps its database and encryption material in the application data folder - without it existing backups cannot be decrypted, so back it up before uninstalling with data removal. TOS Docker applications cannot see shared folders: local targets live in DockerAppData/duplicatidocker/backups unless you edit docker-compose.yml."
+
+[zh-cn]
+name         = "Duplicati"
+auth         = "Duplicati"
+version      = "@@VERSION@@"
+descript     = "Duplicati 是备份客户端：把文件以加密、增量、压缩的方式备份到本地磁盘、网络共享或云存储（S3、WebDAV、SFTP、OneDrive、Google Drive、Dropbox 等），保留版本历史，可校验备份并从网页界面恢复单个文件或整套数据。本应用以非 root 容器运行官方 Docker Hub 镜像，数据库保存在应用数据目录。"
+release_note = "1. 首次发布：来自 Docker Hub 官方镜像的 Duplicati 2.4.1.0-stable，以非 root 容器运行；数据库与本地备份目标保存在应用数据目录。"
+important    = "需要 DockerEngine（缺失时应用中心会提示安装）。镜像安装时从 Docker Hub 拉取，无法直连请先配置镜像加速。打开后请先设置管理员密码，再添加备份任务。Duplicati 的数据库与加密材料在应用数据目录——丢失后已有备份集将无法解密，卸载并删除数据前务必备份。TOS 的 Docker 应用访问不到共享文件夹：本地备份目标只能放在 DockerAppData/duplicatidocker/backups，除非你自行编辑 docker-compose.yml。"
+
+[zh-hk]
+name         = "Duplicati"
+auth         = "Duplicati"
+version      = "@@VERSION@@"
+descript     = "Duplicati 是備份用戶端：把檔案以加密、增量、壓縮的方式備份到本機磁碟、網路共享或雲端儲存（S3、WebDAV、SFTP、OneDrive、Google Drive、Dropbox 等），保留版本歷史，可校驗備份並從網頁介面還原單一檔案或整套資料。本應用以非 root 容器執行官方 Docker Hub 映像，資料庫保存在應用資料目錄。"
+release_note = "1. 首次發佈：來自 Docker Hub 官方映像的 Duplicati 2.4.1.0-stable，以非 root 容器執行；資料庫與本機備份目標保存在應用資料目錄。"
+important    = "需要 DockerEngine（缺少時應用中心會提示安裝）。映像安裝時從 Docker Hub 下載，無法直連請先設定映像加速。開啟後請先設定管理員密碼，再加入備份工作。Duplicati 的資料庫與加密材料在應用資料目錄——遺失後既有備份集將無法解密，解除安裝並刪除資料前務必備份。TOS 的 Docker 應用存取不到共享資料夾：本機備份目標只能放在 DockerAppData/duplicatidocker/backups，除非你自行編輯 docker-compose.yml。"
+
+[fr-fr]
+name         = "Duplicati"
+auth         = "Duplicati"
+version      = "@@VERSION@@"
+descript     = "Duplicati is a backup client that stores encrypted, incremental, compressed backups of your files on local disks, network shares or cloud storage (S3, WebDAV, SFTP, OneDrive, Google Drive, Dropbox and many more). It keeps version history, verifies backups and restores single files or whole sets from its web UI. This package runs the official Docker Hub image as a non-root container and keeps its database in the application data folder."
+release_note = "1. First release: Duplicati 2.4.1.0-stable from the official Docker Hub image, running as a non-root container. The database and backup targets are kept in the application data folder."
+important    = "Requires DockerEngine (installed if missing); add a registry mirror if Docker Hub is unreachable. Open the app and set an admin password, then add a backup job. Duplicati keeps its database and encryption material in the application data folder - without it existing backups cannot be decrypted, so back it up before uninstalling with data removal. TOS Docker applications cannot see shared folders: local targets live in DockerAppData/duplicatidocker/backups unless you edit docker-compose.yml."
+
+[de-de]
+name         = "Duplicati"
+auth         = "Duplicati"
+version      = "@@VERSION@@"
+descript     = "Duplicati is a backup client that stores encrypted, incremental, compressed backups of your files on local disks, network shares or cloud storage (S3, WebDAV, SFTP, OneDrive, Google Drive, Dropbox and many more). It keeps version history, verifies backups and restores single files or whole sets from its web UI. This package runs the official Docker Hub image as a non-root container and keeps its database in the application data folder."
+release_note = "1. First release: Duplicati 2.4.1.0-stable from the official Docker Hub image, running as a non-root container. The database and backup targets are kept in the application data folder."
+important    = "Requires DockerEngine (installed if missing); add a registry mirror if Docker Hub is unreachable. Open the app and set an admin password, then add a backup job. Duplicati keeps its database and encryption material in the application data folder - without it existing backups cannot be decrypted, so back it up before uninstalling with data removal. TOS Docker applications cannot see shared folders: local targets live in DockerAppData/duplicatidocker/backups unless you edit docker-compose.yml."
+
+[it-it]
+name         = "Duplicati"
+auth         = "Duplicati"
+version      = "@@VERSION@@"
+descript     = "Duplicati is a backup client that stores encrypted, incremental, compressed backups of your files on local disks, network shares or cloud storage (S3, WebDAV, SFTP, OneDrive, Google Drive, Dropbox and many more). It keeps version history, verifies backups and restores single files or whole sets from its web UI. This package runs the official Docker Hub image as a non-root container and keeps its database in the application data folder."
+release_note = "1. First release: Duplicati 2.4.1.0-stable from the official Docker Hub image, running as a non-root container. The database and backup targets are kept in the application data folder."
+important    = "Requires DockerEngine (installed if missing); add a registry mirror if Docker Hub is unreachable. Open the app and set an admin password, then add a backup job. Duplicati keeps its database and encryption material in the application data folder - without it existing backups cannot be decrypted, so back it up before uninstalling with data removal. TOS Docker applications cannot see shared folders: local targets live in DockerAppData/duplicatidocker/backups unless you edit docker-compose.yml."
+
+[es-es]
+name         = "Duplicati"
+auth         = "Duplicati"
+version      = "@@VERSION@@"
+descript     = "Duplicati is a backup client that stores encrypted, incremental, compressed backups of your files on local disks, network shares or cloud storage (S3, WebDAV, SFTP, OneDrive, Google Drive, Dropbox and many more). It keeps version history, verifies backups and restores single files or whole sets from its web UI. This package runs the official Docker Hub image as a non-root container and keeps its database in the application data folder."
+release_note = "1. First release: Duplicati 2.4.1.0-stable from the official Docker Hub image, running as a non-root container. The database and backup targets are kept in the application data folder."
+important    = "Requires DockerEngine (installed if missing); add a registry mirror if Docker Hub is unreachable. Open the app and set an admin password, then add a backup job. Duplicati keeps its database and encryption material in the application data folder - without it existing backups cannot be decrypted, so back it up before uninstalling with data removal. TOS Docker applications cannot see shared folders: local targets live in DockerAppData/duplicatidocker/backups unless you edit docker-compose.yml."
+
+[hu-hu]
+name         = "Duplicati"
+auth         = "Duplicati"
+version      = "@@VERSION@@"
+descript     = "Duplicati is a backup client that stores encrypted, incremental, compressed backups of your files on local disks, network shares or cloud storage (S3, WebDAV, SFTP, OneDrive, Google Drive, Dropbox and many more). It keeps version history, verifies backups and restores single files or whole sets from its web UI. This package runs the official Docker Hub image as a non-root container and keeps its database in the application data folder."
+release_note = "1. First release: Duplicati 2.4.1.0-stable from the official Docker Hub image, running as a non-root container. The database and backup targets are kept in the application data folder."
+important    = "Requires DockerEngine (installed if missing); add a registry mirror if Docker Hub is unreachable. Open the app and set an admin password, then add a backup job. Duplicati keeps its database and encryption material in the application data folder - without it existing backups cannot be decrypted, so back it up before uninstalling with data removal. TOS Docker applications cannot see shared folders: local targets live in DockerAppData/duplicatidocker/backups unless you edit docker-compose.yml."
+
+[ja-jp]
+name         = "Duplicati"
+auth         = "Duplicati"
+version      = "@@VERSION@@"
+descript     = "Duplicati is a backup client that stores encrypted, incremental, compressed backups of your files on local disks, network shares or cloud storage (S3, WebDAV, SFTP, OneDrive, Google Drive, Dropbox and many more). It keeps version history, verifies backups and restores single files or whole sets from its web UI. This package runs the official Docker Hub image as a non-root container and keeps its database in the application data folder."
+release_note = "1. First release: Duplicati 2.4.1.0-stable from the official Docker Hub image, running as a non-root container. The database and backup targets are kept in the application data folder."
+important    = "Requires DockerEngine (installed if missing); add a registry mirror if Docker Hub is unreachable. Open the app and set an admin password, then add a backup job. Duplicati keeps its database and encryption material in the application data folder - without it existing backups cannot be decrypted, so back it up before uninstalling with data removal. TOS Docker applications cannot see shared folders: local targets live in DockerAppData/duplicatidocker/backups unless you edit docker-compose.yml."
+
+[ko-kr]
+name         = "Duplicati"
+auth         = "Duplicati"
+version      = "@@VERSION@@"
+descript     = "Duplicati is a backup client that stores encrypted, incremental, compressed backups of your files on local disks, network shares or cloud storage (S3, WebDAV, SFTP, OneDrive, Google Drive, Dropbox and many more). It keeps version history, verifies backups and restores single files or whole sets from its web UI. This package runs the official Docker Hub image as a non-root container and keeps its database in the application data folder."
+release_note = "1. First release: Duplicati 2.4.1.0-stable from the official Docker Hub image, running as a non-root container. The database and backup targets are kept in the application data folder."
+important    = "Requires DockerEngine (installed if missing); add a registry mirror if Docker Hub is unreachable. Open the app and set an admin password, then add a backup job. Duplicati keeps its database and encryption material in the application data folder - without it existing backups cannot be decrypted, so back it up before uninstalling with data removal. TOS Docker applications cannot see shared folders: local targets live in DockerAppData/duplicatidocker/backups unless you edit docker-compose.yml."
+
+[pl-pl]
+name         = "Duplicati"
+auth         = "Duplicati"
+version      = "@@VERSION@@"
+descript     = "Duplicati is a backup client that stores encrypted, incremental, compressed backups of your files on local disks, network shares or cloud storage (S3, WebDAV, SFTP, OneDrive, Google Drive, Dropbox and many more). It keeps version history, verifies backups and restores single files or whole sets from its web UI. This package runs the official Docker Hub image as a non-root container and keeps its database in the application data folder."
+release_note = "1. First release: Duplicati 2.4.1.0-stable from the official Docker Hub image, running as a non-root container. The database and backup targets are kept in the application data folder."
+important    = "Requires DockerEngine (installed if missing); add a registry mirror if Docker Hub is unreachable. Open the app and set an admin password, then add a backup job. Duplicati keeps its database and encryption material in the application data folder - without it existing backups cannot be decrypted, so back it up before uninstalling with data removal. TOS Docker applications cannot see shared folders: local targets live in DockerAppData/duplicatidocker/backups unless you edit docker-compose.yml."
+
+[ru-ru]
+name         = "Duplicati"
+auth         = "Duplicati"
+version      = "@@VERSION@@"
+descript     = "Duplicati is a backup client that stores encrypted, incremental, compressed backups of your files on local disks, network shares or cloud storage (S3, WebDAV, SFTP, OneDrive, Google Drive, Dropbox and many more). It keeps version history, verifies backups and restores single files or whole sets from its web UI. This package runs the official Docker Hub image as a non-root container and keeps its database in the application data folder."
+release_note = "1. First release: Duplicati 2.4.1.0-stable from the official Docker Hub image, running as a non-root container. The database and backup targets are kept in the application data folder."
+important    = "Requires DockerEngine (installed if missing); add a registry mirror if Docker Hub is unreachable. Open the app and set an admin password, then add a backup job. Duplicati keeps its database and encryption material in the application data folder - without it existing backups cannot be decrypted, so back it up before uninstalling with data removal. TOS Docker applications cannot see shared folders: local targets live in DockerAppData/duplicatidocker/backups unless you edit docker-compose.yml."
+
+[tr-tr]
+name         = "Duplicati"
+auth         = "Duplicati"
+version      = "@@VERSION@@"
+descript     = "Duplicati is a backup client that stores encrypted, incremental, compressed backups of your files on local disks, network shares or cloud storage (S3, WebDAV, SFTP, OneDrive, Google Drive, Dropbox and many more). It keeps version history, verifies backups and restores single files or whole sets from its web UI. This package runs the official Docker Hub image as a non-root container and keeps its database in the application data folder."
+release_note = "1. First release: Duplicati 2.4.1.0-stable from the official Docker Hub image, running as a non-root container. The database and backup targets are kept in the application data folder."
+important    = "Requires DockerEngine (installed if missing); add a registry mirror if Docker Hub is unreachable. Open the app and set an admin password, then add a backup job. Duplicati keeps its database and encryption material in the application data folder - without it existing backups cannot be decrypted, so back it up before uninstalling with data removal. TOS Docker applications cannot see shared folders: local targets live in DockerAppData/duplicatidocker/backups unless you edit docker-compose.yml."
+
+[pt-pt]
+name         = "Duplicati"
+auth         = "Duplicati"
+version      = "@@VERSION@@"
+descript     = "Duplicati is a backup client that stores encrypted, incremental, compressed backups of your files on local disks, network shares or cloud storage (S3, WebDAV, SFTP, OneDrive, Google Drive, Dropbox and many more). It keeps version history, verifies backups and restores single files or whole sets from its web UI. This package runs the official Docker Hub image as a non-root container and keeps its database in the application data folder."
+release_note = "1. First release: Duplicati 2.4.1.0-stable from the official Docker Hub image, running as a non-root container. The database and backup targets are kept in the application data folder."
+important    = "Requires DockerEngine (installed if missing); add a registry mirror if Docker Hub is unreachable. Open the app and set an admin password, then add a backup job. Duplicati keeps its database and encryption material in the application data folder - without it existing backups cannot be decrypted, so back it up before uninstalling with data removal. TOS Docker applications cannot see shared folders: local targets live in DockerAppData/duplicatidocker/backups unless you edit docker-compose.yml."
+
+[ar-sa]
+name         = "Duplicati"
+auth         = "Duplicati"
+version      = "@@VERSION@@"
+descript     = "Duplicati is a backup client that stores encrypted, incremental, compressed backups of your files on local disks, network shares or cloud storage (S3, WebDAV, SFTP, OneDrive, Google Drive, Dropbox and many more). It keeps version history, verifies backups and restores single files or whole sets from its web UI. This package runs the official Docker Hub image as a non-root container and keeps its database in the application data folder."
+release_note = "1. First release: Duplicati 2.4.1.0-stable from the official Docker Hub image, running as a non-root container. The database and backup targets are kept in the application data folder."
+important    = "Requires DockerEngine (installed if missing); add a registry mirror if Docker Hub is unreachable. Open the app and set an admin password, then add a backup job. Duplicati keeps its database and encryption material in the application data folder - without it existing backups cannot be decrypted, so back it up before uninstalling with data removal. TOS Docker applications cannot see shared folders: local targets live in DockerAppData/duplicatidocker/backups unless you edit docker-compose.yml."
+
+[cs-cz]
+name         = "Duplicati"
+auth         = "Duplicati"
+version      = "@@VERSION@@"
+descript     = "Duplicati is a backup client that stores encrypted, incremental, compressed backups of your files on local disks, network shares or cloud storage (S3, WebDAV, SFTP, OneDrive, Google Drive, Dropbox and many more). It keeps version history, verifies backups and restores single files or whole sets from its web UI. This package runs the official Docker Hub image as a non-root container and keeps its database in the application data folder."
+release_note = "1. First release: Duplicati 2.4.1.0-stable from the official Docker Hub image, running as a non-root container. The database and backup targets are kept in the application data folder."
+important    = "Requires DockerEngine (installed if missing); add a registry mirror if Docker Hub is unreachable. Open the app and set an admin password, then add a backup job. Duplicati keeps its database and encryption material in the application data folder - without it existing backups cannot be decrypted, so back it up before uninstalling with data removal. TOS Docker applications cannot see shared folders: local targets live in DockerAppData/duplicatidocker/backups unless you edit docker-compose.yml."
+
+[he-il]
+name         = "Duplicati"
+auth         = "Duplicati"
+version      = "@@VERSION@@"
+descript     = "Duplicati is a backup client that stores encrypted, incremental, compressed backups of your files on local disks, network shares or cloud storage (S3, WebDAV, SFTP, OneDrive, Google Drive, Dropbox and many more). It keeps version history, verifies backups and restores single files or whole sets from its web UI. This package runs the official Docker Hub image as a non-root container and keeps its database in the application data folder."
+release_note = "1. First release: Duplicati 2.4.1.0-stable from the official Docker Hub image, running as a non-root container. The database and backup targets are kept in the application data folder."
+important    = "Requires DockerEngine (installed if missing); add a registry mirror if Docker Hub is unreachable. Open the app and set an admin password, then add a backup job. Duplicati keeps its database and encryption material in the application data folder - without it existing backups cannot be decrypted, so back it up before uninstalling with data removal. TOS Docker applications cannot see shared folders: local targets live in DockerAppData/duplicatidocker/backups unless you edit docker-compose.yml."
+
+[id-id]
+name         = "Duplicati"
+auth         = "Duplicati"
+version      = "@@VERSION@@"
+descript     = "Duplicati is a backup client that stores encrypted, incremental, compressed backups of your files on local disks, network shares or cloud storage (S3, WebDAV, SFTP, OneDrive, Google Drive, Dropbox and many more). It keeps version history, verifies backups and restores single files or whole sets from its web UI. This package runs the official Docker Hub image as a non-root container and keeps its database in the application data folder."
+release_note = "1. First release: Duplicati 2.4.1.0-stable from the official Docker Hub image, running as a non-root container. The database and backup targets are kept in the application data folder."
+important    = "Requires DockerEngine (installed if missing); add a registry mirror if Docker Hub is unreachable. Open the app and set an admin password, then add a backup job. Duplicati keeps its database and encryption material in the application data folder - without it existing backups cannot be decrypted, so back it up before uninstalling with data removal. TOS Docker applications cannot see shared folders: local targets live in DockerAppData/duplicatidocker/backups unless you edit docker-compose.yml."
+
+[nb-no]
+name         = "Duplicati"
+auth         = "Duplicati"
+version      = "@@VERSION@@"
+descript     = "Duplicati is a backup client that stores encrypted, incremental, compressed backups of your files on local disks, network shares or cloud storage (S3, WebDAV, SFTP, OneDrive, Google Drive, Dropbox and many more). It keeps version history, verifies backups and restores single files or whole sets from its web UI. This package runs the official Docker Hub image as a non-root container and keeps its database in the application data folder."
+release_note = "1. First release: Duplicati 2.4.1.0-stable from the official Docker Hub image, running as a non-root container. The database and backup targets are kept in the application data folder."
+important    = "Requires DockerEngine (installed if missing); add a registry mirror if Docker Hub is unreachable. Open the app and set an admin password, then add a backup job. Duplicati keeps its database and encryption material in the application data folder - without it existing backups cannot be decrypted, so back it up before uninstalling with data removal. TOS Docker applications cannot see shared folders: local targets live in DockerAppData/duplicatidocker/backups unless you edit docker-compose.yml."
+
+[nl-nl]
+name         = "Duplicati"
+auth         = "Duplicati"
+version      = "@@VERSION@@"
+descript     = "Duplicati is a backup client that stores encrypted, incremental, compressed backups of your files on local disks, network shares or cloud storage (S3, WebDAV, SFTP, OneDrive, Google Drive, Dropbox and many more). It keeps version history, verifies backups and restores single files or whole sets from its web UI. This package runs the official Docker Hub image as a non-root container and keeps its database in the application data folder."
+release_note = "1. First release: Duplicati 2.4.1.0-stable from the official Docker Hub image, running as a non-root container. The database and backup targets are kept in the application data folder."
+important    = "Requires DockerEngine (installed if missing); add a registry mirror if Docker Hub is unreachable. Open the app and set an admin password, then add a backup job. Duplicati keeps its database and encryption material in the application data folder - without it existing backups cannot be decrypted, so back it up before uninstalling with data removal. TOS Docker applications cannot see shared folders: local targets live in DockerAppData/duplicatidocker/backups unless you edit docker-compose.yml."
+
+[sv-se]
+name         = "Duplicati"
+auth         = "Duplicati"
+version      = "@@VERSION@@"
+descript     = "Duplicati is a backup client that stores encrypted, incremental, compressed backups of your files on local disks, network shares or cloud storage (S3, WebDAV, SFTP, OneDrive, Google Drive, Dropbox and many more). It keeps version history, verifies backups and restores single files or whole sets from its web UI. This package runs the official Docker Hub image as a non-root container and keeps its database in the application data folder."
+release_note = "1. First release: Duplicati 2.4.1.0-stable from the official Docker Hub image, running as a non-root container. The database and backup targets are kept in the application data folder."
+important    = "Requires DockerEngine (installed if missing); add a registry mirror if Docker Hub is unreachable. Open the app and set an admin password, then add a backup job. Duplicati keeps its database and encryption material in the application data folder - without it existing backups cannot be decrypted, so back it up before uninstalling with data removal. TOS Docker applications cannot see shared folders: local targets live in DockerAppData/duplicatidocker/backups unless you edit docker-compose.yml."
+
+[th-th]
+name         = "Duplicati"
+auth         = "Duplicati"
+version      = "@@VERSION@@"
+descript     = "Duplicati is a backup client that stores encrypted, incremental, compressed backups of your files on local disks, network shares or cloud storage (S3, WebDAV, SFTP, OneDrive, Google Drive, Dropbox and many more). It keeps version history, verifies backups and restores single files or whole sets from its web UI. This package runs the official Docker Hub image as a non-root container and keeps its database in the application data folder."
+release_note = "1. First release: Duplicati 2.4.1.0-stable from the official Docker Hub image, running as a non-root container. The database and backup targets are kept in the application data folder."
+important    = "Requires DockerEngine (installed if missing); add a registry mirror if Docker Hub is unreachable. Open the app and set an admin password, then add a backup job. Duplicati keeps its database and encryption material in the application data folder - without it existing backups cannot be decrypted, so back it up before uninstalling with data removal. TOS Docker applications cannot see shared folders: local targets live in DockerAppData/duplicatidocker/backups unless you edit docker-compose.yml."
+
+[vi-vn]
+name         = "Duplicati"
+auth         = "Duplicati"
+version      = "@@VERSION@@"
+descript     = "Duplicati is a backup client that stores encrypted, incremental, compressed backups of your files on local disks, network shares or cloud storage (S3, WebDAV, SFTP, OneDrive, Google Drive, Dropbox and many more). It keeps version history, verifies backups and restores single files or whole sets from its web UI. This package runs the official Docker Hub image as a non-root container and keeps its database in the application data folder."
+release_note = "1. First release: Duplicati 2.4.1.0-stable from the official Docker Hub image, running as a non-root container. The database and backup targets are kept in the application data folder."
+important    = "Requires DockerEngine (installed if missing); add a registry mirror if Docker Hub is unreachable. Open the app and set an admin password, then add a backup job. Duplicati keeps its database and encryption material in the application data folder - without it existing backups cannot be decrypted, so back it up before uninstalling with data removal. TOS Docker applications cannot see shared folders: local targets live in DockerAppData/duplicatidocker/backups unless you edit docker-compose.yml."
+
